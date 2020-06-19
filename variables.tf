@@ -37,3 +37,12 @@ variable "as_name" {
   default     = "lab-app-service"
 }
 
+# Tags
+variable "tags" {
+  type        = map
+  description = "Set this to the mapping of tags to assign to the resource."
+  default = {
+    Environment = "Innovation Lab"
+    Dept = "Engineering"
+  }
+}

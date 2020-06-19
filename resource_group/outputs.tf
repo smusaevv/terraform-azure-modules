@@ -1,9 +1,6 @@
-output "rg_dep" {
-  # Again, the value is not important because we're just
-  # using this for its dependencies.
+output "rg_dep" { 
+ #  Anything that refers to this output must wait until
+  # the actions for azurerm_resource_group.rg to have completed first.
    value = azurerm_resource_group.rg
-  
-  # value = "{module.resource-group.rg}"
-  # depends_on = [azurerm_resource_group.rg]
 }
  

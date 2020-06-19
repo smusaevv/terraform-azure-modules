@@ -10,6 +10,7 @@ module "resource-group" {
     source   = "./resource_group"
     rg_name  = var.rg_name
     location = var.location
+    tags     = var.tags
 }
 
 # Create an app service plan
@@ -21,6 +22,7 @@ module "app-service-plan" {
     kind            = var.kind
     reserved        = var.reserved
     asp_depends_on  = [module.resource-group.rg_dep]
+    tags            = var.tags
 }
 
 # Create an app service
@@ -29,6 +31,6 @@ module "app-service" {
     as_name             = var.as_name
     location            = var.location
     rg_name             = var.rg_name
-    as_depends_on       = [module.resource-group.rg_dep]
     app_service_plan_id = module.app-service-plan.asp_id
+    tags                = var.tags
 }
