@@ -1,1 +1,1 @@
-## This repository contains Terraform modules to build App Service Plan and App Service in Azure.
+## This repository contains Terraform Azure modules to build Resource Group, App Service Plan and App Service.
