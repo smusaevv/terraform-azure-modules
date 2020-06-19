@@ -29,6 +29,6 @@ module "app-service" {
     as_name             = var.as_name
     location            = var.location
     rg_name             = var.rg_name
-    # app_service_plan_id = azurerm_app_service_plan.app_service_plan.id
-    # app_service_plan_id = module.app-service-plan.as_plan_id
+    as_depends_on       = [module.resource-group.rg_dep]
+    app_service_plan_id = module.app-service-plan.asp_id
 }

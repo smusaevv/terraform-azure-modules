@@ -32,3 +32,13 @@ variable "tags" {
     Dept = "Engineering"
   }
 }
+
+variable "as_depends_on" {
+  type    = any
+  default = []
+}
+
+variable "app_service_plan_id" {
+  type        = string
+  description = "Name of the Resource Group."
+}
