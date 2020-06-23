@@ -47,6 +47,32 @@ variable "as_name" {
   default     = "lab-app-service"
 }
 
+variable "https_only" {
+  type        = bool
+  description = "Can the App Service only be accessed via HTTPS? Defaults to false."
+  default     = true
+}
+
+variable "site_config" {
+  type        = map
+  description = "A site_config block as defined below."
+  default     = {
+    always_on = true
+    dotnet_framework_version = "V4.0"
+  }
+}
+
+variable "connection_string" {
+  type        = map
+  description = "Specify the name, type and value of the Connection String."
+  default     = {
+    name  = "Database"
+    type  = "SQLServer"
+    value = "Server=some-server.mydomain.com;Integrated Security=SSPI"
+  }
+}
+
+
 # Tags
 variable "tags" {
   type        = map
