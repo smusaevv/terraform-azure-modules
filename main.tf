@@ -22,6 +22,13 @@ module "app-service-plan" {
     kind            = var.kind
     reserved        = var.reserved
     asp_depends_on  = [module.resource-group.rg_dep]
+
+    sku = {
+    capacity = lookup(var.sku, "capacity", null)
+    size     = lookup(var.sku, "size", "S1")
+    tier     = lookup(var.sku, "tier", "Standard")
+    }
+
     tags            = var.tags
 }
 

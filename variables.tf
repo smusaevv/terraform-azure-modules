@@ -30,6 +30,16 @@ variable "reserved" {
   default     = true
 }
 
+variable "sku" {
+  type        = map
+  description = "Specify the plan's pricing tier, size and number of workers associated with this App Service Plan."
+  default     = {
+    capacity = null
+    tier     = "Standard"
+    size     = "S1"
+  }
+}
+
 # App service 
 variable "as_name" {
   type        = string

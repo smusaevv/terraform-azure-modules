@@ -9,7 +9,8 @@ resource "azurerm_app_service_plan" "app_service_plan" {
   depends_on          = [var.asp_depends_on]
   
   sku {
-    tier = var.tier
-    size = var.size
-  }  
+    capacity = lookup(var.sku, "capacity", null)
+    size     = lookup(var.sku, "size", null)
+    tier     = lookup(var.sku, "tier", null)
+  }
 }
